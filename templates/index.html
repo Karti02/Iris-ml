@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    min-height:100vh;
+    overflow-y:auto;
+}
+
+.card{
+    margin:40px 0;
+} 
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding:40px;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    background:linear-gradient(-45deg,
+    #0f172a,
+    #1d4ed8,
+    #7c3aed,
+    #06b6d4,
+    #ec4899);
+
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
+}
+@keyframes gradientBG{
+0%{
+background-position:0% 50%;
+}
+50%{
+background-position:100% 50%;
+}
+100%{
+background-position:0% 50%;
+}
+
+}
+body::before,
+body::after{
+content:"";
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+animation:moveBlob 10s infinite alternate;
+}
+
+body::before{
+width:250px;
+height:250px;
+background:#00f7ff;
+top:-80px;
+left:-60px;
+}
+
+body::after{
+width:300px;
+height:300px;
+background:#ff00c8;
+bottom:-100px;
+right:-100px;
+}
+
+@keyframes moveBlob{
+100%{
+transform:translate(60px,-50px);
+}
+
+}
+.card{
+width:460px;
+padding:35px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.2);
+border-radius:25px;
+box-shadow:
+0 0 30px rgba(0,255,255,.2);
+animation:
+floatCard 5s ease-in-out infinite,
+blinkGlow 2s infinite;
+}
+
+@keyframes floatCard{
+50%{
+transform:translateY(-10px);
+}
+}
+
+@keyframes blinkGlow{
+0%,100%{
+box-shadow:
+0 0 25px cyan;
+}
+
+50%{
+box-shadow:
+0 0 45px magenta;
+}
+
+}
+.card h1{
+text-align:center;
+font-size:34px;
+margin-bottom:15px;
+font-weight:700;
+background:linear-gradient(90deg,
+#00f5ff,
+#ff00c8,
+#8a2be2);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow{
+100%{
+filter:drop-shadow(0 0 15px cyan);
+}
+
+}
+.card p{
+text-align:center;
+color:#eee;
+margin-bottom:20px;
+line-height:1.6;
+}
+label{
+display:block;
+margin-top:15px;
+font-weight:600;
+color:white;
+}
+input{
+width:100%;
+padding:14px;
+margin-top:8px;
+border:none;
+outline:none;
+border-radius:14px;
+background:rgba(255,255,255,.1);
+color:white;
+font-size:15px;
+transition:.35s;
+}
+
+input::placeholder{
+color:#d1d5db;
+}
+
+input:focus{
+transform:scale(1.03);
+background:rgba(255,255,255,.15);
+box-shadow:0 0 20px cyan;
+}
+button{
+width:100%;
+margin-top:25px;
+padding:15px;
+border:none;
+border-radius:15px;
+cursor:pointer;
+font-size:17px;
+font-weight:bold;
+color:white;
+background:linear-gradient(90deg,
+#00f5ff,
+#8a2be2,
+#ff00c8);
+background-size:300%;
+transition:.4s;
+}
+
+button:hover{
+background-position:right;
+transform:translateY(-4px);
+box-shadow:0 0 25px cyan;
+}
+.Prediction-Box{
+
+margin-top:30px;
+
+padding:20px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.2);
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+
+box-shadow:0 0 30px cyan;
+
+}
+
+}
+
+.Prediction-Text{
+
+text-align:center;
+
+font-size:22px;
+
+font-weight:700;
+
+color:white;
+
+}
+
+.Prediction-Text span{
+
+color:#00f7ff;
+
+text-shadow:0 0 12px cyan;
+
+}
+
+/* Image */
+
+.Prediction-Image{
+
+display:flex;
+
+justify-content:center;
+
+margin-top:20px;
+
+}
+
+.Prediction-Image img{
+
+width:180px;
+
+border-radius:20px;
+
+transition:.5s;
+
+animation:rotateFloat 4s infinite;
+
+box-shadow:0 0 20px cyan;
+
+}
+
+.Prediction-Image img:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 35px magenta;
+
+}
+
+@keyframes rotateFloat{
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+/* Links */
+
+.back-link{
+
+display:inline-block;
+
+margin-top:20px;
+margin-right:15px;
+
+color:#00f7ff;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.back-link:hover{
+
+color:white;
+
+text-shadow:0 0 15px cyan;
+
+letter-spacing:1px;
+
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.card{
+
+width:95%;
+
+padding:25px;
+
+}
+
+.card h1{
+
+font-size:28px;
+
+}
+
+.Prediction-Image img{
+
+width:140px;
+
+}
+
+}
+</style>
+</head>
+<body>
+    <div class = 'card'>
+        <h1>Iris Flower Prediction</h1>
+        <p>Enter the features of the iris flower below to predict its species.</p>
+        <p>{{ct}}</p>
+        <br>
+
+        <form action ='/predict' method = 'POST'>
+            <label for="sepal_length">Sepal Length:</label>
+            <input type="number" step="any" name="sl" placeholder="Enter sepal length" required><br><br>
+
+            <label for="sepal_width">Sepal Width:</label>
+            <input type="number" step="0.01" name="sw" placeholder="Enter sepal width" required><br><br>
+
+            <label for="petal_length">Petal Length:</label>
+            <input type="number" step="0.01" name="pl" placeholder="Enter petal length" required><br><br>
+
+            <label for="petal_width">Petal Width:</label>
+            <input type="number" step="0.01" name="pw" placeholder="Enter petal width" required><br><br>
+            <button type="submit">Predict</button>
+        </form>
+        {% if pred %}
+        <div class = 'Prediction-Box'>
+            <div class = 'Prediction-Text'>
+                Predicted Species: <span>{{pred}}</span>
+            </div>
+
+            <div class = 'Prediction-Image'>
+                <img src="{{ url_for('static', filename='images/' + pred + '.jpg') }}"alt="{{ pred }}">
+            </div>
+        </div>
+        {% endif %}
+        <a class = 'back-link' href = '/about'>About</a>
+        <a class = 'back-link' href = '/'>Home</a>
+    </div>
+</body>
+</html>

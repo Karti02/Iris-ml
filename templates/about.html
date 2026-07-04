@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | Iris Flower Prediction</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#6dd5ed,#2193b0,#a18cd1,#fbc2eb);
+background-size:400% 400%;
+animation:bg 12s infinite alternate;
+color:white;
+
+}
+
+@keyframes bg{
+
+0%{background-position:left;}
+100%{background-position:right;}
+
+}
+
+.container{
+
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:40px;
+
+}
+
+header{
+text-align:center;
+padding:40px 20px;
+}
+header h1{
+font-size:55px;
+font-weight:700;
+}
+header p{
+font-size:20px;
+margin-top:15px;
+opacity:.9;
+}
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:20px;
+margin:30px 0;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+.card h2{
+margin-bottom:20px;
+font-size:30px;
+color:#fff;
+
+}
+
+.card p{
+
+font-size:18px;
+line-height:1.8;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
+
+}
+
+.box{
+
+background:rgba(255,255,255,.2);
+padding:25px;
+border-radius:20px;
+transition:.4s;
+
+}
+
+.box:hover{
+
+transform:translateY(-10px) scale(1.04);
+background:rgba(255,255,255,.3);
+
+}
+
+.box h3{
+
+margin-bottom:15px;
+font-size:24px;
+
+}
+
+.box p{
+
+font-size:17px;
+
+}
+
+.tech{
+
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-top:25px;
+
+}
+
+.tech span{
+
+background:white;
+color:#333;
+padding:12px 18px;
+border-radius:30px;
+font-weight:600;
+
+}
+
+.steps{
+
+margin-top:25px;
+
+}
+
+.steps li{
+
+margin:15px 0;
+font-size:18px;
+
+}
+
+.footer{
+
+text-align:center;
+padding:40px;
+font-size:18px;
+opacity:.9;
+
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>🌸 About Iris Flower Prediction</h1>
+<p>
+An intelligent Machine Learning application that predicts the species
+of an Iris flower based on its measurements.
+</p>
+</header>
+
+<div class="card">
+<h2>📖 Project Overview</h2>
+
+<p>
+The Iris Flower Prediction System is a Machine Learning based web
+application that classifies an Iris flower into one of three species:
+<b>Setosa</b>, <b>Versicolor</b>, or <b>Virginica</b>.
+The prediction is made using four flower measurements:
+<ul class="steps">
+<li>🌿 Sepal Length</li>
+<li>🌿 Sepal Width</li>
+<li>🌸 Petal Length</li>
+<li>🌸 Petal Width</li>
+</ul>
+Using these features, the trained ML model accurately predicts the
+flower species within seconds.
+</p>
+</div>
+<div class="grid">
+
+<div class="box">
+
+<h3>🌺 Dataset</h3>
+
+<p>
+The application uses the famous Iris Dataset containing 150 flower
+samples equally distributed among three species.
+</p>
+</div>
+
+<div class="box">
+
+<h3>🤖 Machine Learning</h3>
+
+<p>
+The prediction model is trained using supervised learning algorithms
+from Scikit-Learn to achieve high prediction accuracy.
+</p>
+
+</div>
+
+<div class="box">
+<h3>⚡ Fast Prediction</h3>
+<p>
+Users simply enter flower measurements and instantly receive the
+predicted Iris species.
+</p>
+</div>
+</div>
+<div class="card">
+<h2>⚙️ Technologies Used</h2>
+
+<div class="tech">
+<span>HTML5</span>
+<span>CSS3</span>
+<span>Python</span>
+<span>Flask</span>
+<span>Scikit-Learn</span>
+<span>NumPy</span>
+<span>Pandas</span>
+<span>Machine Learning</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🔄 How It Works</h2>
+
+<ol class="steps">
+<li>User enters flower measurements.</li>
+<li>Input values are sent to the Flask backend.</li>
+<li>The trained ML model processes the data.</li>
+<li>The model predicts the Iris species.</li>
+<li>The prediction is displayed with confidence.</li>
+</ol>
+</div>
+
+<div class="card">
+
+<h2>🎯 Project Goals</h2>
+
+<p>
+
+This project demonstrates how Machine Learning can solve real-world
+classification problems using simple numerical inputs. It also
+showcases the integration of Python, Flask, and Frontend Web
+Development into a complete intelligent web application.
+
+</p>
+</div>
+<br>
+<a href ='/'> Go back to Home</a>
+<div class="footer">
+
+Made by Karti using Machine Learning & Flask
+
+</div>
+</div>
+</body>
+</html>
